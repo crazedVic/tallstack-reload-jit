@@ -16,5 +16,6 @@ use App\Http\Livewire\Home;
 
 // goes straight to view, code behind doesn't run:
 //Route::view('/', 'livewire.home')->name('home');
+
 // pulls the livewire class instead, can use code behind then
 Route::get('/', Home::class)->name('home');
