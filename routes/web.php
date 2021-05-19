@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Home;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+// goes straight to view, code behind doesn't run:
+//Route::view('/', 'livewire.home')->name('home');
+// pulls the livewire class instead, can use code behind then
+Route::get('/', Home::class)->name('home');
