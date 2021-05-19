@@ -1,3 +1,5 @@
+This project out of the box will have browsersync and tailwind jit running.
+
 install composer first
 
 [Composer Download](https://getcomposer.org/download/)
