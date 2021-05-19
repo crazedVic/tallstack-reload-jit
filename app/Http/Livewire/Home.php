@@ -7,7 +7,7 @@ use Livewire\Component;
 class Home extends Component
 {
 
-    public String $message = "Welcome to Laravel Livewire with Alpine and Tailwind";
+    public String $message = "Welcome to Laravel Livewire with Alpine, BrowserSync and Tailwind JIT";
 
     public function render()
     {
