@@ -13,4 +13,5 @@
     </span>
     <button wire:click="incrementCounter">Increment via PHP function</button>
     <button wire:click="$set('countClicks', {{$countClicks+1}})">Increment via livewire $set</button>
+    <!-- still need to add Emit examples in all directions -->
 </div>
