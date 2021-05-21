@@ -22,11 +22,22 @@ class Home extends Component
     }
 
     public function updatedCountClicks($value){
+        // Runs after any update to the Livewire component's data
+        // (Using wire:model, not directly inside PHP)
         error_log("clicks updated " . $value);
     }
 
     public function incrementCounter(){
-        error_log("helllo");
+        // does not trigger updatedCountClicks event!
         $this->countClicks = $this->countClicks + 1;
+    }
+
+    public function emitIncrementEventToJSWithParam(){
+        $this->dispatchBrowserEvent('incrementEventToJSWithParam',['newValue' => $this->countClicks + 1]);
+    }
+
+    public function emitIncrementEventToJSNoParam(){
+
+        $this->dispatchBrowserEvent('incrementEventToJSNoParam');
     }
 }
