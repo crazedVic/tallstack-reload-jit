@@ -1,7 +1,12 @@
 <?php
 
+if (!ini_get('html_errors')) {
+    ini_set('html_errors', '1');
+}
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+
 
 define('LARAVEL_START', microtime(true));
 
