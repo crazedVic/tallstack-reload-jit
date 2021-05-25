@@ -1,7 +1,7 @@
 <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 flex flex-col w-full text-lg font-bold justify-center items-center min-h-screen" >
    <span id="alpine1" x-data="{show: false, message: @entangle('message'), countClicks: @entangle('countClicks')}"
         class="flex flex-col w-full text-lg font-bold justify-center items-center">
-        <span class="mb-3 font-light text-lg">{{$title}}</span>
+        <span class="mb-3 font-light text-lg testme">{{$title}}</span>
         <input class="btn bg-green-700 text-white" type="button" value="Hello AlpineJS" @click="show = !show">
         <span x-show="show" class="mt-3 text-red-900">Hello back at you!</span>
         <hr class=" w-1/2 mt-2 border-gray-500" />

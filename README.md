@@ -26,3 +26,5 @@ then run **npx mix watch** and leave it running
 then to run the php server open another terminal and run:
 
 _php artisan serve_
+
+non-tailwind, non-scss styles can be put in resources/css/styles.css this will be copied over by mix and is referenced in base.blade.php
