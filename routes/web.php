@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Products;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ use App\Http\Livewire\Home;
 
 // pulls the livewire class instead, can use code behind then
 Route::get('/', Home::class)->name('home');
+Route::get('/products', Products::class)->name('products');

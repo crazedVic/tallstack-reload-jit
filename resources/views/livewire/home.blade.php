@@ -1,4 +1,5 @@
 <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 flex flex-col w-full text-lg font-bold justify-center items-center min-h-screen" >
+    <div class="w-full text-right  px-6 font-normal text-blue-500 underline"><a href="{{ route('products') }}">Model Fun</a></div>
     <span id="alpine1" 
         x-data="{showDialog: @entangle('showDialog'), message: @entangle('message'), countClicks: @entangle('countClicks')}"
         class="flex flex-col w-full text-lg font-bold justify-center items-center">

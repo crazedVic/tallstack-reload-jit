@@ -10,6 +10,7 @@
             <div>I am an anonymous blade component!</div>
         <div> Number of clicks: {{$this->countClicks}} </div>
         <div> Number of clicks: {{$data}} </div>
-        <button class="btn bg-gray-800 cursor-pointer " wire:click="incrementCounter">Increment Counter</button>
+        <button class="btn bg-gray-800 cursor-pointer " wire:click="incrementCounter">Increment Counter Livewire Function</button>
+        <button class="btn bg-gray-800 cursor-pointer " wire:click="$set('countClicks',{{$this->countClicks+1}})">Increment Counter Livewire Set</button>
     </div>
 </div>
