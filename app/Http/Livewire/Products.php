@@ -41,11 +41,15 @@ class Products extends Component
         unset($this->products[$id]);
     }
 
-    public function showProduct($product, $prodName){
+    public function showProduct($product){
 
-       // dd([$prodName, $this->prodName]);
-        dd([$product, $this->currentProduct]);
+        dd(["alpinejs"=>$product,"livewire" => $this->currentProduct]);
     }
+
+    public function showProductName($prodName){
+
+         dd(["alpinejs"=>$prodName,"livewire" =>  $this->prodName]);
+     }
 
     public function deleteProductByObject($product){
         $key = $product["id"];
@@ -57,9 +61,12 @@ class Products extends Component
         }
     }
 
-    public function save($products){
-        $this->products = $products;
-        dd([$this->products, $this->array_products, $this->currentProduct]);
+    public function showStateArray($products, $array_products){
+        // $this->products = $products;
+        dd(["alpinejs-assoc"=>$this->products, 
+            "alpinejs-simple" => $array_products,
+            "livewire-assoc" => $this->products, 
+            "livewire-simple" => $this->array_products]);
 
     }
 }
