@@ -25,8 +25,6 @@
     <input class="btn" type="button" wire:click="emitIncrementEventToJSNoParam" value="Increment via PHP function that emits event to Javascript">
 </div>
 
-
-
 <script>
 
     function emitEventFromJS(){
