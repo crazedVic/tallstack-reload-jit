@@ -9,7 +9,7 @@
         prodName: @entangle('prodName'),
         }" 
         class="flex flex-col w-full text-sm d justify-center items-center">
-        <div>This uses an associative array of products where the key is the product id</div>
+        <div>This uses an associative array of products where the key is the product id, here changes to object not reflected in js or livewire</div>
         <template x-for="[key, product] in Object.entries(assoc_products)" :key="key">
             <div class="flex space-x-2 items-baseline">
                 <span x-text="key"></span>
@@ -19,7 +19,7 @@
             </div>
         </template>
         <hr class="my-5 text-blue-500" />
-        <div>This uses a simple array of products with no key, so deleting is harder</div>
+        <div>This uses a simple array of products with no key, so deleting is harder, and though changes reflected in js, not in livewire</div>
         <template x-for="product,index in simple_products" :key="index">
             <div class="flex space-x-2 items-baseline">
                 <span x-text="product.id"></span>
