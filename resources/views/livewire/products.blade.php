@@ -3,14 +3,14 @@
     </div>
 
     <span id="alpine1" x-data="{
-        products: @entangle('products'), 
-        array_products: @entangle('array_products'), 
+        assoc_products: @entangle('products'), 
+        simple_products: @entangle('array_products'), 
         currentProduct: @entangle('currentProduct'),
         prodName: @entangle('prodName'),
         }" 
         class="flex flex-col w-full text-sm d justify-center items-center">
         <div>This uses an associative array of products where the key is the product id</div>
-        <template x-for="[key, product] in Object.entries(products)" :key="key">
+        <template x-for="[key, product] in Object.entries(assoc_products)" :key="key">
             <div class="flex space-x-2 items-baseline">
                 <span x-text="key"></span>
                 <input type="text" x-model="product.name">
@@ -20,7 +20,7 @@
         </template>
         <hr class="my-5 text-blue-500" />
         <div>This uses a simple array of products with no key, so deleting is harder</div>
-        <template x-for="product,index in array_products" :key="index">
+        <template x-for="product,index in simple_products" :key="index">
             <div class="flex space-x-2 items-baseline">
                 <span x-text="product.id"></span>
                 <input type="text" x-model="product.name">
@@ -28,15 +28,22 @@
                 <button class="btn" @click="$wire.deleteProductByObject(product)">Delete using search</button>
             </div>
         </template>
+        <button class="btn" @click="$wire.showStateArray(assoc_products, simple_products)">Show Array States</button>
         <hr class="my-5 text-blue-500" />
+        <div>This uses an entangled object</div>
         <div>
                 <span x-text="currentProduct.id"></span>
                 <input type="text" name="name" x-model="currentProduct.name">
                 <input type="text" x-model="currentProduct.price">
-                <button @click="$wire.showProduct(currentProduct, prodName)">Show State</button>
+                <button class="btn" @click="$wire.showProduct(currentProduct)">Show State</button>
         </div>
-        <button class="btn" @click="$wire.save(products)">save Changes</button>
-        <input type="text" name="name" x-model="prodName">
+        
+        <hr class="my-5 text-blue-500" />
+        <div>This uses an entangled string</div>
+        <div>
+            <input type="text" name="name" x-model="prodName">
+            <button class="btn" @click="$wire.showProductName(prodName)">Show State</button>
+        </div>
     </span>
 
     <span>&nbsp;</span>
