@@ -39,6 +39,12 @@
             <input type="text" name="name" x-model.debounce.500="prodName">
             <button class="btn" @click="$wire.showProductName(prodName)">Show State</button>
         </div>
+        <hr class="my-5 text-blue-500" />
+        <div>This calls a javascript function defined in x-data, which displays x-data variable in alert</div>
+        <div>
+            
+            <button class="btn" @click="fetchData()">Run Function</button>
+        </div>
         <script>
             function page() {
                 return {
@@ -47,9 +53,10 @@
                     currentProduct: @entangle('currentProduct'),
                     prodName: @entangle('prodName'),
                     fetchData() {
-                        console.log("hello world");
+                        alert("Product Name: " + this.prodName);
                     },
                     init() {
+                        let {name,price} = this.currentProduct;
                         this.$watch('currentProduct.name', (val) => console.log(val));
                     }
                 }
