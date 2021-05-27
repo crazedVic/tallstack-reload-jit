@@ -31,3 +31,9 @@ non-tailwind, non-scss styles can be put in resources/css/styles.css this will b
 
 interesting alpine helpers:  
 [https://github.com/alpine-collective/alpine-magic-helpers#component](https://github.com/alpine-collective/alpine-magic-helpers#component)
+
+on triggering entangled array refreshes after index changes:  
+[https://www.geeksforgeeks.org/removing-array-element-and-re-indexing-in-php/](https://www.geeksforgeeks.org/removing-array-element-and-re-indexing-in-php/)
+
+on moving x-data to script:   
+[https://github.com/alpinejs/alpine/issues/203](https://github.com/alpinejs/alpine/issues/203)
