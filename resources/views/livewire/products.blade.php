@@ -2,14 +2,9 @@
     <div class="w-full text-right px-6 font-normal text-blue-500 underline"><a href="{{ route('home') }}">Back to home</a>
     </div>
 
-    <span id="alpine1" x-data="{
-        assoc_products: @entangle('products'), 
-        simple_products: @entangle('array_products'), 
-        currentProduct: @entangle('currentProduct'),
-        prodName: @entangle('prodName'),
-        }" 
+    <span id="alpine1" x-data="page()" x-init="init()"
         class="flex flex-col w-full text-sm d justify-center items-center">
-        <div>This uses an associative array of products where the key is the product id, here changes to object not reflected in js or livewire</div>
+        <div>This uses an associative array of products where the key is the product id, here changes not reflected in js or livewire</div>
         <template x-for="[key, product] in Object.entries(assoc_products)" :key="key">
             <div class="flex space-x-2 items-baseline">
                 <span x-text="key"></span>
@@ -41,9 +36,26 @@
         <hr class="my-5 text-blue-500" />
         <div>This uses an entangled string</div>
         <div>
-            <input type="text" name="name" x-model="prodName">
+            <input type="text" name="name" x-model.debounce.500="prodName">
             <button class="btn" @click="$wire.showProductName(prodName)">Show State</button>
         </div>
+        <script>
+            function page() {
+                return {
+                    assoc_products: @entangle('products'), 
+                    simple_products: @entangle('array_products'), 
+                    currentProduct: @entangle('currentProduct'),
+                    prodName: @entangle('prodName'),
+                    fetchData() {
+                        console.log("hello world");
+                    },
+                    init() {
+                        this.$watch('currentProduct.name', (val) => console.log(val));
+                    }
+                }
+            }
+
+         </script>
     </span>
 
     <span>&nbsp;</span>
