@@ -20,9 +20,11 @@
                 <span x-text="product.id"></span>
                 <input type="text" x-model="product.name">
                 <input type="text" x-model="product.price">
-                <button class="btn" @click="$wire.deleteProductByObject(product)">Delete using search</button>
+                <button class="btn" @click="$wire.deleteProductByObject(product)">Delete using id</button>
+                <button class="btn" @click="$wire.deleteProductByIndex(index)">Delete using index</button>
             </div>
         </template>
+        
         <button class="btn" @click="$wire.showStateArray(assoc_products, simple_products)">Show Array States</button>
         <hr class="my-5 text-blue-500" />
         <div>This uses an entangled object</div>

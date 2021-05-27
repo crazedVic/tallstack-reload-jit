@@ -61,6 +61,11 @@ class Products extends Component
         }
     }
 
+    public function deleteProductByIndex($index){
+        unset($this->array_products[$index]);
+        $this->array_products = array_values($this->array_products);
+    }
+
     public function showStateArray($products, $array_products){
         // $this->products = $products;
         dd(["alpinejs-assoc"=>$this->products, 
