@@ -1,5 +1,7 @@
-<div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 flex flex-col w-full text-lg font-bold justify-between items-center min-h-screen">
-    <div class="w-full text-right px-6 font-normal text-blue-500 underline"><a href="{{ route('home') }}">Back to home</a>
+<div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 flex flex-col w-full text-lg font-bold justify-between items-center min-h-screen pt-8">
+<div class="w-full text-right flex justify-end space-x-3 px-6 font-normal text-blue-500 underline mb-6">
+    <a href="{{ route('home') }}">Back to home</a>
+        <a href="{{ route('products-lw') }}">Fun with Just Livewire</a>
     </div>
 
     <span id="alpine1" x-data="page()" x-init="init()"
