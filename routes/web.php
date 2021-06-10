@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Form\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Products;
@@ -21,3 +22,4 @@ use App\Http\Livewire\Products;
 // pulls the livewire class instead, can use code behind then
 Route::get('/', Home::class)->name('home');
 Route::get('/products', Products::class)->name('products');
+Route::get('/form', Product::class)->name('product-form');

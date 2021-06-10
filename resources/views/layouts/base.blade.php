@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         <!-- Styles -->
-        
+
         <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
         @livewireStyles
 
@@ -33,6 +33,17 @@
     <body>
         @yield('body')
 
+        <script>
+            for(i=0; i<document.forms.length; i++){
+                document.forms[i].style.visibility = 'hidden';
+            }
+
+            document.addEventListener('livewire:load', function () {
+                for(i=0; i<document.forms.length; i++){
+                    document.forms[i].style.visibility = 'visible';
+                }
+            })
+        </script>
         @livewireScripts
     </body>
 </html>
