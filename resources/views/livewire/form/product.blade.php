@@ -1,6 +1,6 @@
 <div class="flex flex-col justify-center items-center m-8">
-    <p>To see the form hiding until livewire finishes loading open developer tools | network and then set throttling to Fast3GH</p>
-    <p>The javascript that controls this hiding behaviour can be found in layouts/base.blade.php</p>
+<p class="mt-4 mb-5 max-w-2xl text-center">To see the form hiding until livewire finishes loading open developer tools | network and then set throttling to Fast3G.
+The javascript that controls this hiding behaviour can be found in layouts/base.blade.php</p>
     <form >
         <input class="w-32" type="text" wire:model="name">
     </form>
@@ -21,11 +21,16 @@
             </div>
         </div>
     @endif
-    <p> This next area plays with wire:loading</p>
+    <p class="mt-4 mb-5 max-w-2xl text-center"> This next area plays with wire:loading, wire:target.  You can target a wire:model bound element id or you target a php function.</p>
     <div>
-            <button class="text-white bg-black px-3 py-2" wire:loading.remove wire:click="longFunctionCall()">Trigger lengthy function</button>
-            <div wire:loading class="bg-green-300 p-1">Waiting for call to return ... </div>
-            <div wire:loading.class="bg-gray-400">{{$status}}</div>
+            <button id="btn1" class="text-white bg-green-500 px-3 py-2" 
+                wire:loading.remove wire:click="longFunctionCall()">Button one</button>
+            <button id="btn2" class="text-white bg-blue-500 px-3 py-2" 
+                wire:target="longFunctionCall2" wire:loading.remove wire:click="longFunctionCall2()">Button two</button><br>
+           
+            <div wire:target="longFunctionCall" wire:loading wire:loading.class="bg-green-300 p-1">Waiting for call to return ... </div>       
+            <div wire:target="longFunctionCall2" wire:loading wire:loading.class="bg-blue-300 p-1">Waiting for call to return ... </div>    
+            <div wire:target="longFunctionCall,longFunctionCall2" wire:loading.class="bg-gray-400"  >{{$status}}</div>
     </div>
 </div>
 

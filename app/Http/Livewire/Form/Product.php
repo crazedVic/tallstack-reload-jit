@@ -42,4 +42,11 @@ class Product extends Component
         $this->counter++;
         $this->status = "Call number " . $this->counter;
     }
+
+    public function longFunctionCall2(){
+        error_log('long running call started');
+        sleep(3);
+        $this->counter++;
+        $this->status = "Call number " . $this->counter;
+    }
 }
