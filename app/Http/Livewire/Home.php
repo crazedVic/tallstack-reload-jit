@@ -10,7 +10,7 @@ class Home extends Component
 
     public $listeners = ["incrementEvent"=> "incrementCounter", "showDialogEvent"];
     public string $title = "Welcome to Laravel Livewire with Alpine, BrowserSync and Tailwind JIT";
-    public String $message = "Welcome Aboard";
+    public string $message = "Welcome Aboard";
     public int $countClicks = 0;
     public $data;
     public bool $showDialog = false;
