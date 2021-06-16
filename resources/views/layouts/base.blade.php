@@ -34,15 +34,29 @@
         @yield('body')
 
         <script>
-            for(i=0; i<document.forms.length; i++){
-                document.forms[i].style.visibility = 'hidden';
-            }
+            // for(i=0; i<document.forms.length; i++){
+            //     document.forms[i].style.visibility = 'hidden';
+            // }
 
             document.addEventListener('livewire:load', function () {
-                for(i=0; i<document.forms.length; i++){
-                    document.forms[i].style.visibility = 'visible';
-                }
-            })
+                console.log('livewire load');
+                // for(i=0; i<document.forms.length; i++){
+                //     document.forms[i].style.visibility = 'visible';
+                // }
+            });
+
+            document.addEventListener('livewire:available', function () {
+                console.log('livewire available');
+                // for(i=0; i<document.forms.length; i++){
+                //     document.forms[i].style.visibility = 'visible';
+                // }
+            });
+            document.addEventListener('livewire:update', function (e) {
+                console.log(e);
+                // for(i=0; i<document.forms.length; i++){
+                //     document.forms[i].style.visibility = 'visible';
+                // }
+            });
         </script>
         @livewireScripts
     </body>

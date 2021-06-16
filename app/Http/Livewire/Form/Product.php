@@ -11,6 +11,7 @@ class Product extends Component
     public bool $showform = false;
     public string $status = "Call number 0";
     public int $counter =0;
+    public string $dirtyProperty ="Original";
 
     public function fun(){
         error_log("fun");

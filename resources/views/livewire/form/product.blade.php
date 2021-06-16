@@ -32,5 +32,14 @@ The javascript that controls this hiding behaviour can be found in layouts/base.
             <div wire:target="longFunctionCall2" wire:loading wire:loading.class="bg-blue-300 p-1">Waiting for call to return ... </div>    
             <div wire:target="longFunctionCall,longFunctionCall2" wire:loading.class="bg-gray-400"  >{{$status}}</div>
     </div>
+    <p class="mt-4 mb-5 max-w-2xl text-center">
+     This next area plays with wire:dirty</p>
+     <div>
+         <form class="flex flex-col justify-center items-center" >
+        <input class="w-32" type="text" wire:model.lazy="dirtyProperty" wire:dirty.class="font-bold">
+        <p wire:dirty wire:target="dirtyProperty">Value has been changed, once you move focus away, the value will update in php and no longer be dirty</p>
+        </form>
+        
+        </div>
 </div>
 
