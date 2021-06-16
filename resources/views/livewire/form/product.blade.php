@@ -1,4 +1,6 @@
 <div class="flex flex-col justify-center items-center m-8">
+    <p>To see the form hiding until livewire finishes loading open developer tools | network and then set throttling to Fast3GH</p>
+    <p>The javascript that controls this hiding behaviour can be found in layouts/base.blade.php</p>
     <form >
         <input class="w-32" type="text" wire:model="name">
     </form>
@@ -19,5 +21,11 @@
             </div>
         </div>
     @endif
+    <p> This next area plays with wire:loading</p>
+    <div>
+            <button class="text-white bg-black px-3 py-2" wire:loading.remove wire:click="longFunctionCall()">Trigger lengthy function</button>
+            <div wire:loading class="bg-green-300 p-1">Waiting for call to return ... </div>
+            <div wire:loading.class="bg-gray-400">{{$status}}</div>
+    </div>
 </div>
 

@@ -9,6 +9,8 @@ class Product extends Component
 
     public string $name;
     public bool $showform = false;
+    public string $status = "Call number 0";
+    public int $counter =0;
 
     public function fun(){
         error_log("fun");
@@ -32,5 +34,12 @@ class Product extends Component
     {
         error_log("rendered");
         return view('livewire.form.product');
+    }
+
+    public function longFunctionCall(){
+        error_log('long running call started');
+        sleep(3);
+        $this->counter++;
+        $this->status = "Call number " . $this->counter;
     }
 }
