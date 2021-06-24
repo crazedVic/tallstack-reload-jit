@@ -50,4 +50,8 @@ class Product extends Component
         $this->counter++;
         $this->status = "Call number " . $this->counter;
     }
+
+    public function getGeo($ipAddress){
+        return "lat, long";
+    }
 }

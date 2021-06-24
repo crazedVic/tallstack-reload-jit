@@ -41,5 +41,24 @@ The javascript that controls this hiding behaviour can be found in layouts/base.
         </form>
         
         </div>
+    <p class="mt-4 mb-5 max-w-2xl text-center">
+     This next area deal with running livewire methods and getting back values in javascript on load.</p>
+     <button id="btn1" class="text-white bg-green-500 px-3 py-2" 
+                onclick="getIP()">Get Geo</button>
 </div>
+<script>
+    let address = "";
+
+    // document.addEventListener('livewire:load', async function () {
+    //     console.log('livewire load');
+    //     result = await @this.getGeo('192.232.23.22');
+    //     console.log(result);
+
+    // });
+
+    async function getIP (){
+        result = await @this.getGeo('192.232.23.22');
+        console.log(result);
+    }
+</script>
 

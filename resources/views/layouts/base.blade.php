@@ -39,20 +39,20 @@
             // }
 
             document.addEventListener('livewire:load', function () {
-                console.log('livewire load');
+                //console.log('livewire load');
                 // for(i=0; i<document.forms.length; i++){
                 //     document.forms[i].style.visibility = 'visible';
                 // }
             });
 
             document.addEventListener('livewire:available', function () {
-                console.log('livewire available');
+                //console.log('livewire available');
                 // for(i=0; i<document.forms.length; i++){
                 //     document.forms[i].style.visibility = 'visible';
                 // }
             });
             document.addEventListener('livewire:update', function (e) {
-                console.log(e);
+                //console.log(e);
                 // for(i=0; i<document.forms.length; i++){
                 //     document.forms[i].style.visibility = 'visible';
                 // }
