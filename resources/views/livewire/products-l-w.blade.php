@@ -3,7 +3,14 @@
         <a href="{{ route('home') }}">Back to home</a>
         <a href="{{ route('products') }}">Fun with Alpine/Livewire</a>
     </div>
-    <span> This will play around with livewire, no alpine.</span>
+    <span>
+
+    <div><button class="btn" wire:click.prevent="filter()">@if($mode=="active") Show Inactive @else  Show Active @endif</button></div>
+    @foreach($products as $product)
+        <div>{{$product->name}} has status of {{$product->status}} 
+        <button class="btn" wire:click.prevent="toggle({{$product}})">Toggle</button></div>
+    @endforeach
+    </span>
   
    <span>&nbsp;</span>
 </div>
