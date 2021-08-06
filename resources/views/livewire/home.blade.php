@@ -24,10 +24,20 @@
     <input class="btn" type="button" onclick="emitEventFromJS()" value="Increment via Javascript Function and Livewire.emit">
     <input class="btn" type="button" wire:click="emitIncrementEventToJSWithParam" value="Increment via PHP function that emits event with params to Javascript">
     <input class="btn" type="button" wire:click="emitIncrementEventToJSNoParam" value="Increment via PHP function that emits event to Javascript">
+    <input class="btn" type="button" onclick="callFunctionFromJavascript()" value="Increment via Javascript function that calls Livewire Function (@ this)">
+    <input class="btn" type="button" onclick="changeValueFromJavascript()" value="Increment via Javascript function that changes Livewire Property (@ this)">
+
 </div>
 
 <script>
 
+    function callFunctionFromJavascript(){
+        @this.incrementCounter();
+    }
+
+    function changeValueFromJavascript(){
+        @this.countClicks ++;
+    }
     function emitEventFromJS(){
         Livewire.emit("incrementEvent")
     }
