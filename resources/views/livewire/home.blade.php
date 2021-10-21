@@ -1,52 +1,32 @@
-<div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-400 flex flex-col w-full text-lg font-bold justify-center items-center min-h-screen" >
-    <div class="w-full text-right flex justify-end space-x-3 px-6 font-normal text-blue-500 underline"><a href="{{ route('products') }}">Alpine/LW Fun</a><a href="{{ route('products-lw') }}">Livewire Fun</a></div>
-    <span id="alpine1" 
-        x-data="{showDialog: @entangle('showDialog'), message: @entangle('message'), countClicks: @entangle('countClicks')}"
-        class="flex flex-col w-full text-lg font-bold justify-center items-center">
-            <x-dialog :data="$countClicks"  x-show="showDialog"/>
-            <span class="mb-3 text-lg lightandblue">{{$title}}</span>
-            <input class="btn bg-green-700 text-white" type="button" value="Hello AlpineJS" 
-                @click="showDialog = true"  >
-            <hr class=" w-1/2 mt-2 border-gray-500" />
-            <span class="subtitle">Using Tailwind @apply in app.scss here</span>
-            <hr class=" w-1/2 mb-3 border-gray-500" />
-            <input class="min-w-lg" type="text" x-model.debounce.500="message">
-            <span class="my-2" x-text="message"></span>
-            <hr class=" w-1/2 my-2 border-gray-500" />
-            <span x-text="countClicks"></span>
-            <input type="button" x-on:click="$wire.set('countClicks', countClicks+1)"
-                value="Increment via AplineJS using $wire.set"
-                class="btn">
-            <input class="btn" type="button" x-on:click="countClicks++" value="Increment via AlpineJS">
-    </span>
-    <input class="btn" type="button" wire:click="incrementCounter" value="Increment via Liveware call to PHP function">
-    <input class="btn" type="button" wire:click="$set('countClicks', {{$countClicks+1}})" value="Increment via Livewire $set()">
-    <input class="btn" type="button" onclick="emitEventFromJS()" value="Increment via Javascript Function and Livewire.emit">
-    <input class="btn" type="button" wire:click="emitIncrementEventToJSWithParam" value="Increment via PHP function that emits event with params to Javascript">
-    <input class="btn" type="button" wire:click="emitIncrementEventToJSNoParam" value="Increment via PHP function that emits event to Javascript">
-    <input class="btn" type="button" onclick="callFunctionFromJavascript()" value="Increment via Javascript function that calls Livewire Function (@ this)">
-    <input class="btn" type="button" onclick="changeValueFromJavascript()" value="Increment via Javascript function that changes Livewire Property (@ this)">
-
+<div class="p-20">
+    <p class="w-full text-center mb-12">This is a collection of livewire pages demonstrating different features of
+        livewire and alpinejs, and is also used to test for breaking changes in sdk updates.
+    </p>
+    <p class="mb-2">Here are the links and descriptions to the various pages:</p>
+    <ul class="ml-6">
+        <li class="mb-2"><a href="{{ route('emit-events') }}" class="underline text-blue-600">Emit-events</a><br />
+            Emitting events to and from JS and livewire backend, testing to see what happens to data as it moves back
+            and forth.  This does not deal with livewire events emitting to other livewire components.  its purely livewire<->javascript.
+        </li>
+        <li class="mb-2"><a href="{{ route('products') }}" class="underline text-blue-600">Products</a><br />
+            This page tests how  how to maintain collection state using alpine entangle vs livewire public variables, and how those collections can be manipulated.
+            This also shows how to keep all the alpine fun in a separate script block and how to use this, and how to use $watch.
+        </li>
+        <li class="mb-2"><a href="{{ route('products-lw') }}" class="underline text-blue-600">Products Livewire</a><br />
+            Simplified list where you can toggle the state of each item in the list and then toggle the filter on the list.  Using  wire:click.prevent="filter()" to filter the list and then
+            wire:click.prevent="toggle({ { $product } })" to toggle the item status.  These are both livewire events.
+        </li>
+        <li class="mb-2"><a href="{{ route('product-form') }}" class="underline text-blue-600">Products Form</a><br />
+            Playing around with wire:loading functionality using wire:target.. having the ui update based on livewire activity that's going on.  Best served with the bandwidth throttled.
+        </li>
+        <li class="mb-2"><a href="{{ route('products-new') }}" class="underline text-blue-600">Products New</a><br />
+            A deep dive into how the $rules stuff ties into simple and complex objects maintaining state over various ajax livewire calls.
+        </li>
+        <li class="mb-2"><a href="{{ route('type-ahead-combo') }}" class="underline text-blue-600">Type Ahead Combo</a><br />
+            Created a simple look ahead auto complete dropwdown form control.
+        </li>
+        <li class="mb-2"><a href="{{ route('widget-event') }}" class="underline text-blue-600">Widget Events</a><br />
+            So playing with multiple livewire components on a page that will refresh when a dialog box button is pressed, or dialog is closed.
+        </li>
+    </ul>
 </div>
-
-<script>
-
-    function callFunctionFromJavascript(){
-        @this.incrementCounter();
-    }
-
-    function changeValueFromJavascript(){
-        @this.countClicks ++;
-    }
-    function emitEventFromJS(){
-        Livewire.emit("incrementEvent")
-    }
-
-    window.addEventListener('incrementEventToJSWithParam', event => {
-        document.getElementById('alpine1').__x.$data.countClicks = event.detail.newValue;
-    });
-
-    window.addEventListener('incrementEventToJSNoParam', event => {
-        document.getElementById('alpine1').__x.$data.countClicks ++;
-    });
-    </script>

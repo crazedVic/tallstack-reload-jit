@@ -26,7 +26,7 @@ class Products extends Component
             $temp[$product['id']] = new Product($product);
             $this->array_products[] = new Product($product);
         }
-        $this->products = $temp; 
+        $this->products = $temp;
         $this->currentProduct = (array) json_decode(json_encode($this->array_products[0]));
        // error_log($this->currentProduct->name);
     }
@@ -68,9 +68,9 @@ class Products extends Component
 
     public function showStateArray($products, $array_products){
         // $this->products = $products;
-        dd(["alpinejs-assoc"=>$this->products, 
+        dd(["alpinejs-assoc"=>$this->products,
             "alpinejs-simple" => $array_products,
-            "livewire-assoc" => $this->products, 
+            "livewire-assoc" => $this->products,
             "livewire-simple" => $this->array_products]);
 
     }

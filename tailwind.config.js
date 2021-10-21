@@ -25,7 +25,7 @@ module.exports = {
             './resources/**/*.php',
             './resources/**/*.vue',
             './resources/**/*.twig',
-            './public/**/*.html',
+
             './src/**/*.{js,jsx,ts,tsx,vue}',
             './vendor/livewire/livewire/src/**/*.blade.php',
         ],
