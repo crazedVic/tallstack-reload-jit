@@ -16,7 +16,7 @@ class Modal extends Component
     public function save(){
         $faker = \Faker\Factory::create();
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));
-        $status = array("active","inactive");
+        $status = array("active","inactive","pending");
         $product = Product::create([
             "name" => $faker->vehicle,
             "status" => $status[array_rand($status)],
