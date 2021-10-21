@@ -13,7 +13,7 @@ class Three extends Component
 
     public function render()
     {
-        $this->products = Product::all();
+        $this->products = Product::latest()->take(10)->get();
         return view('livewire.widget.three');
     }
 
