@@ -27,4 +27,8 @@ class Modal extends Component
         ]);
         $this->emit('saveProductEvent');
     }
+
+    public function cancel(){
+        $this->emit('saveProductEvent');
+    }
 }

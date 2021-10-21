@@ -27,7 +27,8 @@
         </li>
         <li class="mb-2"><a href="{{ route('widget-event') }}" class="underline text-blue-600">Widget Events</a><br />
             So playing with multiple livewire components on a page that will refresh when a dialog box button is pressed,
-            or dialog is closed.  Also play with sortByRaw, latest() and take() on the laravel querybuilder.
+            or dialog is closed.  Also play with sortByRaw, latest() and take() on the laravel querybuilder.  Also messed
+            around with tailwind styles on a popup modal with an x and header and such.
         </li>
     </ul>
 </div>
