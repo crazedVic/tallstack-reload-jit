@@ -13,7 +13,9 @@ class One extends Component
 
     public function render()
     {
-        $this->products = Product::latest()->take(10)->get();
+        $this->products = Product::
+            orderByRaw("CASE status when 'pending' then 0 when 'active' then 1 when 'inactive' then 2 END")
+            ->latest()->take(15)->get();
         return view('livewire.widget.one');
     }
 

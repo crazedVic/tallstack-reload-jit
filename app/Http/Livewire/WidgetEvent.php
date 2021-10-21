@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use Livewire\Component;
 
 class WidgetEvent extends Component
@@ -21,7 +22,7 @@ class WidgetEvent extends Component
     }
 
     public function saveProductEvent(){
-        error_log('dialog hiding');
+        error_log('dialog hiding after new product');
         $this->showModal = false;
     }
 }
